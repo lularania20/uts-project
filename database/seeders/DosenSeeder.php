@@ -16,18 +16,22 @@ class DosenSeeder extends Seeder
     {
         $dosen = [
             [
-                'nrp' => '25161616',                         
-                'nama' => 'Lula Rania Salsabilla',
-                'email' => 'salsabillalula@gmail.com',
-                'kelas' => 'D4 LJ Teknik Informatika - B',
-                'tanggal_lahir' => '2001-03-20',
+                'nip' => '25161616',                         
+                'nama' => 'Lia Kurnia',
+                'email' => 'liakurnia@gmail.com',
+                'bidang' => 'Machine Learning',
+                'tanggal_lahir' => '1995-05-30',
+                'created_at' => '2023-04-1 14:09:11',
+                'updated_at' => '2023-04-1 14:09:11'
             ],
             [
-                'nrp' => '32640045',                         
-                'nama' => 'Luly Rini Siii',
-                'email' => 'lulaaa@gmail.com',
-                'kelas' => 'D4 Teknik Komputer',
-                'tanggal_lahir' => '2001-10-25',
+                'nip' => '32640045',                         
+                'nama' => 'Ayana Ashifa',
+                'email' => 'ayanan@gmail.com',
+                'bidang' => 'Database',
+                'tanggal_lahir' => '1987-04-17',
+                'created_at' => '2023-04-1 14:09:11',
+                'updated_at' => '2023-04-1 14:09:11'
             ],
         ];
 

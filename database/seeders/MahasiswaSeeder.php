@@ -21,6 +21,8 @@ class MahasiswaSeeder extends Seeder
                 'email' => 'salsabillalula@gmail.com',
                 'kelas' => 'D4 LJ Teknik Informatika - B',
                 'tanggal_lahir' => '2001-03-20',
+                'created_at' => '2023-04-1 14:09:11',
+                'updated_at' => '2023-04-1 14:09:11'
             ],
             [
                 'nrp' => '32640045',                         
@@ -28,6 +30,8 @@ class MahasiswaSeeder extends Seeder
                 'email' => 'lulaaa@gmail.com',
                 'kelas' => 'D4 Teknik Komputer',
                 'tanggal_lahir' => '2001-10-25',
+                'created_at' => '2023-04-1 14:09:11',
+                'updated_at' => '2023-04-1 14:09:11'
             ],
         ];
 
