@@ -15,6 +15,11 @@ class CreateTugasAkhirsTable extends Migration
     {
         Schema::create('tugas_akhirs', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('id_mahasiswa')->constrained('mahasiswas');
+            $table->foreignId('id_dosen_pembimbing_1')->constrained('dosens');
+            $table->foreignId('id_dosen_pembimbing_2')->constrained('dosens');
+            $table->string('judul');
+            $table->string('metode');
             $table->timestamps();
         });
     }

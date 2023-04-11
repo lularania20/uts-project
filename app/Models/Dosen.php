@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Mahasiswa extends Model
+class Dosen extends Model
 {
     use HasFactory;
     protected $guarded = [];
 
     public function tugasakhir()
     {
-        return $this->hasOne(TugasAkhir::class, 'id_tugas_akhir');
+        return $this->hasMany(TugasAkhir::class, 'id_tugas_akhir');
     }
 }

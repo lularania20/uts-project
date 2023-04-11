@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Mahasiswa;
+use App\Models\TugasAkhir;
 use Illuminate\Http\Request;
 
-class MahasiswaController extends Controller
+class TugasAkhirController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class MahasiswaController extends Controller
      */
     public function index()
     {
-        $mahasiswa = Mahasiswa::paginate(10);
+        $tugasAkhir = TugasAkhir::paginate(10);
         return response()->json([
-            'data' => $mahasiswa
+            'data' => $tugasAkhir
         ]);
     }
 
@@ -38,38 +38,38 @@ class MahasiswaController extends Controller
      */
     public function store(Request $request)
     {
-        $mahasiswa = Mahasiswa::create([
-            'nrp' => $request->nrp,
-            'nama'=> $request->nama,
-            'email'=>$request->email,
-            'kelas'=>$request->kelas,
-            'tanggal_lahir'=>$request->tanggal_lahir,
+        $tugasAkhir = TugasAkhir::create([
+            'id_mahasiswa' => $request->id_mahasiswa,
+            'id_dosen_pembimbing_1'=> $request->id_dosen_pembimbing_1,
+            'id_dosen_pembimbing_2'=>$request->id_dosen_pembimbing_2,
+            'judul'=>$request->judul,
+            'metode'=>$request->metode,
         ]);
         return response()->json([
-            'data' => $mahasiswa
+            'data' => $tugasAkhir
         ]);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Mahasiswa  $mahasiswa
+     * @param  \App\Models\TugasAkhir  $tugasAkhir
      * @return \Illuminate\Http\Response
      */
-    public function show(Mahasiswa $mahasiswa)
+    public function show(TugasAkhir $tugasAkhir)
     {
         return response()->json([
-            'data' => $mahasiswa
+            'data' => $tugasAkhir
         ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Mahasiswa  $mahasiswa
+     * @param  \App\Models\TugasAkhir  $tugasAkhir
      * @return \Illuminate\Http\Response
      */
-    // public function edit(Mahasiswa $mahasiswa)
+    // public function edit(TugasAkhir $tugasAkhir)
     // {
     //     //
     // }
@@ -78,34 +78,34 @@ class MahasiswaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Mahasiswa  $mahasiswa
+     * @param  \App\Models\TugasAkhir  $tugasAkhir
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Mahasiswa $mahasiswa)
+    public function update(Request $request, TugasAkhir $tugasAkhir)
     {
-        $mahasiswa->nrp = $request->nrp;
-        $mahasiswa->nama = $request->nama;
-        $mahasiswa->email = $request->email;
-        $mahasiswa->kelas = $request->kelas;
-        $mahasiswa->tanggal_lahir = $request->tanggal_lahir;
-        $mahasiswa->save();
+        $tugasAkhir->id_mahasiswa = $request->id_mahasiswa;
+        $tugasAkhir->id_dosen_pembimbing_1 = $request->id_dosen_pembimbing_1;
+        $tugasAkhir->id_dosen_pembimbing_2 = $request->id_dosen_pembimbing_2;
+        $tugasAkhir->judul = $request->judul;
+        $tugasAkhir->metode = $request->metode;
+        $tugasAkhir->save();
 
         return response()->json([
-            'data' => $mahasiswa
+            'data' => $tugasAkhir
         ]);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Mahasiswa  $mahasiswa
+     * @param  \App\Models\TugasAkhir  $tugasAkhir
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Mahasiswa $mahasiswa)
+    public function destroy(TugasAkhir $tugasAkhir)
     {
-        $mahasiswa->delete();
+        $tugasAkhir->delete();
         return response()->json([
-            'message' => 'mahasiswa deleted'
+            'message' => 'tugas akhir deleted'
         ], 204);
     }
 }

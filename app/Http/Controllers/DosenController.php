@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Mahasiswa;
+use App\Models\Dosen;
 use Illuminate\Http\Request;
 
-class MahasiswaController extends Controller
+class DosenController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class MahasiswaController extends Controller
      */
     public function index()
     {
-        $mahasiswa = Mahasiswa::paginate(10);
+        $dosen = Dosen::paginate(10);
         return response()->json([
-            'data' => $mahasiswa
+            'data' => $dosen
         ]);
     }
 
@@ -38,38 +38,38 @@ class MahasiswaController extends Controller
      */
     public function store(Request $request)
     {
-        $mahasiswa = Mahasiswa::create([
-            'nrp' => $request->nrp,
+        $dosen = Dosen::create([
+            'nip' => $request->nip,
             'nama'=> $request->nama,
             'email'=>$request->email,
-            'kelas'=>$request->kelas,
+            'bidang'=>$request->bidang,
             'tanggal_lahir'=>$request->tanggal_lahir,
         ]);
         return response()->json([
-            'data' => $mahasiswa
+            'data' => $dosen
         ]);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Mahasiswa  $mahasiswa
+     * @param  \App\Models\Dosen  $dosen
      * @return \Illuminate\Http\Response
      */
-    public function show(Mahasiswa $mahasiswa)
+    public function show(Dosen $dosen)
     {
         return response()->json([
-            'data' => $mahasiswa
+            'data' => $dosen
         ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Mahasiswa  $mahasiswa
+     * @param  \App\Models\Dosen  $dosen
      * @return \Illuminate\Http\Response
      */
-    // public function edit(Mahasiswa $mahasiswa)
+    // public function edit(Dosen $dosen)
     // {
     //     //
     // }
@@ -78,34 +78,34 @@ class MahasiswaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Mahasiswa  $mahasiswa
+     * @param  \App\Models\Dosen  $dosen
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Mahasiswa $mahasiswa)
+    public function update(Request $request, Dosen $dosen)
     {
-        $mahasiswa->nrp = $request->nrp;
-        $mahasiswa->nama = $request->nama;
-        $mahasiswa->email = $request->email;
-        $mahasiswa->kelas = $request->kelas;
-        $mahasiswa->tanggal_lahir = $request->tanggal_lahir;
-        $mahasiswa->save();
+        $dosen->nip = $request->nip;
+        $dosen->nama = $request->nama;
+        $dosen->email = $request->email;
+        $dosen->bidang = $request->bidang;
+        $dosen->tanggal_lahir = $request->tanggal_lahir;
+        $dosen->save();
 
         return response()->json([
-            'data' => $mahasiswa
+            'data' => $dosen
         ]);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Mahasiswa  $mahasiswa
+     * @param  \App\Models\Dosen  $dosen
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Mahasiswa $mahasiswa)
+    public function destroy(Dosen $dosen)
     {
-        $mahasiswa->delete();
+        $dosen->delete();
         return response()->json([
-            'message' => 'mahasiswa deleted'
+            'message' => 'dosen deleted'
         ], 204);
     }
 }
